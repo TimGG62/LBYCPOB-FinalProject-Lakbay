@@ -3,7 +3,8 @@ PROJECT TITLE:
 
 TEAM MEMBERS: 
 1. Kyle Timothy V. Cruz - TimGG62 
-2. Ken Aaron S. Rasing - ken-xv 
+2. Ken Aaron S. Rasing - ken-xv
+3. Serena Beatrice L. Smith - BCartoon
 
 PROBLEM STATEMENT & GOALS:
 - Planning a vacation often involves juggling multiple platforms to find destinations that fit a specific budget, research local culture, and book flights. 
