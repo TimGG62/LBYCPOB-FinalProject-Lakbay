@@ -1,4 +1,4 @@
-package org.example;
+package ph.edu.dlsu.lbycpob.lakbay;
 
 import junit.framework.Test;
 import junit.framework.TestCase;
@@ -7,15 +7,15 @@ import junit.framework.TestSuite;
 /**
  * Unit test for simple App.
  */
-public class AppTest 
-    extends TestCase
+public class LakbayApplicationTest
+        extends TestCase
 {
     /**
      * Create the test case
      *
      * @param testName name of the test case
      */
-    public AppTest( String testName )
+    public LakbayApplicationTest(String testName )
     {
         super( testName );
     }
@@ -25,7 +25,7 @@ public class AppTest
      */
     public static Test suite()
     {
-        return new TestSuite( AppTest.class );
+        return new TestSuite( LakbayApplicationTest.class );
     }
 
     /**
