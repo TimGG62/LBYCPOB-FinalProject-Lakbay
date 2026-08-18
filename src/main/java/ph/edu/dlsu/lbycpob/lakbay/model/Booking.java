@@ -28,4 +28,37 @@ public class Booking {
         this.status = status;
     }
 
+    // UNDERSTAND: Checks if cancellation is allowed, only if current date is at least 7 days before the flight date.
+    public boolean canCancel() {
+        if (flightDate == null || "CANCELLED".equalsIgnoreCase(status)) {
+            return false;
+        }
+        long daysUntilFlight = ChronoUnit.DAYS.between(LocalDate.now(), flightDate);
+        return daysUntilFlight >= 7;
+    }
+
+    // UNDERSTAND: Getters and Setters.
+    public String getId() { return id; }
+    public void setId(String id) { this.id = id; }
+
+    public String getUsername() { return username; }
+    public void setUsername(String username) { this.username = username; }
+
+    public String getDestination() { return destination; }
+    public void setDestination(String destination) { this.destination = destination; }
+
+    public LocalDate getFlightDate() { return flightDate; }
+    public void setFlightDate(LocalDate flightDate) { this.flightDate = flightDate; }
+
+    public String getFlightTime() { return flightTime; }
+    public void setFlightTime(String flightTime) { this.flightTime = flightTime; }
+
+    public int getSeats() { return seats; }
+    public void setSeats(int seats) { this.seats = seats; }
+
+    public double getTotalPrice() { return totalPrice; }
+    public void setTotalPrice(double totalPrice) { this.totalPrice = totalPrice; }
+
+    public String getStatus() { return status; }
+    public void setStatus(String status) { this.status = status; }
 }
