@@ -15,7 +15,7 @@ public class NotificationController {
     public NotificationController(NotificationService notificationService) {
         this.notificationService = notificationService;
     }
-
+    //UNDERSTAND: Displays user notifications
     @GetMapping("/notifications")
     public String showNotifications(HttpSession session, Model model) {
         UserSettings settings = (UserSettings) session.getAttribute("userSettings");

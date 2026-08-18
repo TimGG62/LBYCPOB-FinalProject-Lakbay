@@ -16,6 +16,7 @@ public class BookingPaymentController {
         this.bookingService = bookingService;
     }
 
+    //UNDERSTAND: Deals with payment processing and details
     @PostMapping("/pay")
     public String processPayment(
             @RequestParam String mop,

@@ -23,7 +23,7 @@ public class HomeController {
     public String root() {
         return "redirect:/login";
     }
-
+    //UNDERSTAND: Displays the home page
     @GetMapping("/home")
     public String home(@RequestParam(required = false, defaultValue = "international") String tab, Model model) {
         model.addAttribute("activeTab", tab);
@@ -35,6 +35,7 @@ public class HomeController {
         model.addAttribute("spots", spots);
         return "home";
     }
+    //UNDERSTAND: Displays the filter page
     @GetMapping("/filter")
     public String showFilterPage() {
         return "filter";

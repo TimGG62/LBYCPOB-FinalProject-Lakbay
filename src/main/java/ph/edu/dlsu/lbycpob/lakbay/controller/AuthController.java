@@ -23,11 +23,10 @@ public class AuthController {
             HttpSession session,
             Model model
     ) {
-        // Mock authentication check
+        //UNDERSTAND: Mock authentication check
         if ("user@lakbay.com".equals(email) && "password123".equals(password)) {
             User loggedUser = new Passenger("Juan Dela Cruz", email, password, "P12345678");
             session.setAttribute("currentUser", loggedUser);
-
 
             // Initialize default settings if not set
             if (session.getAttribute("userSettings") == null) {
@@ -40,14 +39,13 @@ public class AuthController {
         model.addAttribute("error", "Invalid email or password.");
         return "login";
     }
-
-
+    //UNDERSTAND: Displays registration page
     @GetMapping("/register")
     public String showRegisterForm() {
         return "register";
     }
 
-
+    //UNDERSTAND: Handles information input in registration
     @PostMapping("/register")
     public String handleRegister(
             @RequestParam String name,
@@ -55,7 +53,7 @@ public class AuthController {
             @RequestParam String password,
             @RequestParam String passportNumber
     ) {
-        // Mock registration logic
+        //UNDERSTAND: Mock registration logic
         return "redirect:/login?registered=true";
     }
 }
