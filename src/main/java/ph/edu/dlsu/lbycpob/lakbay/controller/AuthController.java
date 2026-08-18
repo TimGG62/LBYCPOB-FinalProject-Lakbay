@@ -35,3 +35,27 @@ public class AuthController {
             }
             return "redirect:/home";
         }
+
+
+        model.addAttribute("error", "Invalid email or password.");
+        return "login";
+    }
+
+
+    @GetMapping("/register")
+    public String showRegisterForm() {
+        return "register";
+    }
+
+
+    @PostMapping("/register")
+    public String handleRegister(
+            @RequestParam String name,
+            @RequestParam String email,
+            @RequestParam String password,
+            @RequestParam String passportNumber
+    ) {
+        // Mock registration logic
+        return "redirect:/login?registered=true";
+    }
+}
