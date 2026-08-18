@@ -3,6 +3,7 @@ package ph.edu.dlsu.lbycpob.lakbay.service;
 import org.springframework.stereotype.Service;
 import ph.edu.dlsu.lbycpob.lakbay.model.Booking;
 import ph.edu.dlsu.lbycpob.lakbay.model.Notification;
+import ph.edu.dlsu.lbycpob.lakbay.model.UserSettings;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
@@ -10,6 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 // UNDERSTAND: Manages the creation, storage, and filtering of user notifications like flight reminders and random promos.
 @Service
@@ -61,4 +63,20 @@ public class NotificationService {
         }
     }
 
+    // UNDERSTAND: A 30% chance to spawn a random promo/alert whenever notifications are checked.
+    public List<Notification> getFilteredNotifications(UserSettings settings) {
+        if (random.nextDouble() < 0.30) {
+            triggerRandomNotification();
+        }
+
+        return notifications.stream().filter(n -> {
+            if ("PROMO".equalsIgnoreCase(n.getType()) && !settings.isPromoAlertsEnabled()) {
+                return false;
+            }
+            if ("PRICE_DROP".equalsIgnoreCase(n.getType()) && !settings.isPriceDropAlertsEnabled()) {
+                return false;
+            }
+            return true;
+        }).collect(Collectors.toList());
+    }
 }
