@@ -15,28 +15,24 @@ public class AuthController {
         return "login";
     }
 
-
     @PostMapping("/login")
     public String handleLogin(
-            @RequestParam String email,
+            @RequestParam String email, //UNDERSTAND: Accepts username or email input from form
             @RequestParam String password,
             HttpSession session,
             Model model
     ) {
         //UNDERSTAND: Mock authentication check
-        if ("user@lakbay.com".equals(email) && "password123".equals(password)) {
+        if (("user@lakbay.com".equals(email) || "user".equals(email)) && "password123".equals(password)) {
             User loggedUser = new Passenger("Juan Dela Cruz", email, password, "P12345678");
             session.setAttribute("currentUser", loggedUser);
-
-            // Initialize default settings if not set
             if (session.getAttribute("userSettings") == null) {
                 session.setAttribute("userSettings", new UserSettings("PHP", true, true));
             }
             return "redirect:/home";
         }
 
-
-        model.addAttribute("error", "Invalid email or password.");
+        model.addAttribute("error", "Invalid username/email or password.");
         return "login";
     }
     //UNDERSTAND: Displays registration page
@@ -48,12 +44,13 @@ public class AuthController {
     //UNDERSTAND: Handles information input in registration
     @PostMapping("/register")
     public String handleRegister(
-            @RequestParam String name,
-            @RequestParam String email,
+            @RequestParam(required = false, defaultValue = "Juan Dela Cruz") String name,
+            @RequestParam String email, //UNDERSTAND: Receives the Username input field value
             @RequestParam String password,
-            @RequestParam String passportNumber
+            @RequestParam(required = false, defaultValue = "P12345678") String passportNumber
     ) {
         //UNDERSTAND: Mock registration logic
         return "redirect:/login?registered=true";
     }
 }
+
