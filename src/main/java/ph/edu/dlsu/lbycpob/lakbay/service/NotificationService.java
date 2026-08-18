@@ -1,12 +1,15 @@
 package ph.edu.dlsu.lbycpob.lakbay.service;
 
 import org.springframework.stereotype.Service;
+import ph.edu.dlsu.lbycpob.lakbay.model.Booking;
 import ph.edu.dlsu.lbycpob.lakbay.model.Notification;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
-
+import java.util.UUID;
 
 // UNDERSTAND: Manages the creation, storage, and filtering of user notifications like flight reminders and random promos.
 @Service
@@ -23,5 +26,39 @@ public class NotificationService {
             new Notification("p4", "Price Drop Alert", "Roundtrip fares to Palawan are now starting at ₱3,200.", "PRICE_DROP", LocalDateTime.now().minusHours(6)),
             new Notification("p5", "Schedule Update", "Flight LK-204 departure time shifted by 15 mins.", "CANCELLATION", LocalDateTime.now().minusDays(2))
     );
+
+    // UNDERSTAND: Method to check active bookings for upcoming flights within 7 days
+    public void generateFlightReminders(List<Booking> bookings) {
+        if (bookings == null) return;
+
+        for (Booking booking : bookings) {
+            if ("BOOKED".equalsIgnoreCase(booking.getStatus()) && booking.getFlightDate() != null) {
+                long daysUntilFlight = ChronoUnit.DAYS.between(LocalDate.now(), booking.getFlightDate());
+                if (daysUntilFlight >= 0 && daysUntilFlight <= 7) {
+                    boolean alreadyExists = notifications.stream().anyMatch(n -> n.getMessage().contains(booking.getDestination()));
+                    if (!alreadyExists) {
+                        notifications.add(new Notification(UUID.randomUUID().toString().substring(0, 8), "Flight Reminder",
+                                "Your flight to " + booking.getDestination() + " is in " + daysUntilFlight + " days!",
+                                "FLIGHT_REMINDER", LocalDateTime.now()
+                        ));
+                    }
+                }
+            }
+        }
+    }
+
+    // UNDERSTAND: This randomly triggers a promo/alert notification from the pool, at least 1 or 2.
+    public void triggerRandomNotification() {
+        if (promoPool.isEmpty()) return;
+
+        // UNDERSTAND: Picks a random notification template from the pool.
+        Notification randomNotif = promoPool.get(random.nextInt(promoPool.size()));
+
+        // UNDERSTAND: Ensures that we don't duplicate the exact same ID in active notifications.
+        boolean exists = notifications.stream().anyMatch(n -> n.getId().equals(randomNotif.getId()));
+        if (!exists) {
+            notifications.add(randomNotif);
+        }
+    }
 
 }
