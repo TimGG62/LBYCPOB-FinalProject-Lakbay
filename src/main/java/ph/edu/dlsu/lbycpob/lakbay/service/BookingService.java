@@ -44,4 +44,16 @@ public class BookingService implements GenericService<Ticket>, BookingSystem {
         }
         return false;
     }
+
+    // UNDERSTAND: Retrieves all bookings made by the user.
+    public List<Booking> getUserBookings() {
+        return userBookings;
+    }
+
+    // UNDERSTAND: Retrieves all tickets booked across the entire system.
+    @Override
+    public List<Ticket> getAll() {
+        return globalBookedTickets;
+    }
+
 }
