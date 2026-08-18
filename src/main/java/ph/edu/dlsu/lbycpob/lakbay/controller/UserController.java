@@ -44,3 +44,26 @@ public class UserController {
         session.setAttribute("userSettings", settings);
         return "redirect:/settings?updated=true";
     }
+
+    @GetMapping("/history")
+    public String showHistory(Model model) {
+        model.addAttribute("bookings", bookingService.getUserBookings());
+        return "history";
+    }
+
+    @PostMapping("/history/cancel")
+    public String cancelBooking(@RequestParam String bookingId, Model model) {
+        boolean cancelled = bookingService.cancelBooking(bookingId);
+        if (!cancelled) {
+            return "redirect:/history?error=cannot_cancel";
+        }
+        return "redirect:/history?cancelled=true";
+    }
+
+    @GetMapping("/logout")
+    public String logout(HttpSession session) {
+        session.invalidate();
+        return "redirect:/login";
+    }
+}
+
