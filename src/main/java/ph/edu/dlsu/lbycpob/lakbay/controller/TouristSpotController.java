@@ -28,3 +28,34 @@ public class TouristSpotController {
         model.addAttribute("spots", matchingSpots.isEmpty() ? touristSpotService.getAllSpots() : matchingSpots);
         return "country-spots";
     }
+    //UNDERSTAND: Spot Detail & Flight Booking View
+    @GetMapping("/spot/{spotId}")
+    public String showSpotDetails(@PathVariable String spotId, Model model) {
+        TouristSpot spot = touristSpotService.getSpotById(spotId);
+        if (spot == null) {
+            // Fallback to first spot if ID not found
+            spot = touristSpotService.getAllSpots().get(0);
+        }
+        model.addAttribute("spot", spot);
+        return "spot-detail";
+    }
+
+    //UNDERSTAND: Proceeds from Spot detail view to Payment page
+    @PostMapping("/spot/proceed-to-payment")
+    public String proceedToPayment(
+            @RequestParam String destination,
+            @RequestParam String flightDate,
+            @RequestParam String flightTime,
+            @RequestParam int seats,
+            @RequestParam double pricePerSeat,
+            Model model
+    ) {
+        double totalPrice = pricePerSeat * seats;
+        model.addAttribute("destination", destination);
+        model.addAttribute("flightDate", flightDate);
+        model.addAttribute("flightTime", flightTime);
+        model.addAttribute("seats", seats);
+        model.addAttribute("totalPrice", totalPrice);
+        return "payment";
+    }
+}
