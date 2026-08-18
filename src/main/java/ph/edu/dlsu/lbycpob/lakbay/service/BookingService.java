@@ -3,6 +3,8 @@ package ph.edu.dlsu.lbycpob.lakbay.service;
 import org.springframework.stereotype.Service;
 import ph.edu.dlsu.lbycpob.lakbay.model.Booking;
 import ph.edu.dlsu.lbycpob.lakbay.model.Ticket;
+import ph.edu.dlsu.lbycpob.lakbay.payment.PaymentMethod;
+import ph.edu.dlsu.lbycpob.lakbay.user.User;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -56,4 +58,31 @@ public class BookingService implements GenericService<Ticket>, BookingSystem {
         return globalBookedTickets;
     }
 
+    // UNDERSTAND: Adds a ticket to the global list of all booked tickets.
+    @Override
+    public void add(Ticket ticket) {
+        if (ticket == null) {
+            throw new Ticket.InvalidBookingException("Cannot book a null ticket.");
+        }
+        globalBookedTickets.add(ticket);
+    }
+
+    // UNDERSTAND: Processes payment and finalizes the ticket booking for a specific logged in user.
+    @Override
+    public boolean bookTrip(User user, Ticket ticket, PaymentMethod paymentMethod) {
+        if (user == null) {
+            throw new User.UnauthorizedAccessException("Must be logged in to book a trip.");
+        }
+
+        double amount = ticket.calculateTotalCost();
+        boolean success = paymentMethod.processPayment(amount);
+
+        if (success) {
+            add(ticket);
+            user.addBooking(ticket);
+            return true;
+        } else {
+            throw new Ticket.InvalidBookingException("Payment failed.");
+        }
+    }
 }
