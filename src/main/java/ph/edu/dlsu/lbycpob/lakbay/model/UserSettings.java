@@ -8,4 +8,20 @@ public class UserSettings {
 
     public UserSettings() {}
 
+    // UNDERSTAND: Initializes custom settings for the user.
+    public UserSettings(String currency, boolean promoAlertsEnabled, boolean priceDropAlertsEnabled) {
+        this.currency = currency;
+        this.promoAlertsEnabled = promoAlertsEnabled;
+        this.priceDropAlertsEnabled = priceDropAlertsEnabled;
+    }
+
+    // UNDERSTAND: Getters and Setters.
+    public String getCurrency() { return currency; }
+    public void setCurrency(String currency) { this.currency = currency; }
+
+    public boolean isPromoAlertsEnabled() { return promoAlertsEnabled; }
+    public void setPromoAlertsEnabled(boolean promoAlertsEnabled) { this.promoAlertsEnabled = promoAlertsEnabled; }
+
+    public boolean isPriceDropAlertsEnabled() { return priceDropAlertsEnabled; }
+    public void setPriceDropAlertsEnabled(boolean priceDropAlertsEnabled) { this.priceDropAlertsEnabled = priceDropAlertsEnabled; }
 }
