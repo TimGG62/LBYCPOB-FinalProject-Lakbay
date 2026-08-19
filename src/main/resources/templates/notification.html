@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>LAKBAY</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Trebuchet MS', sans-serif; }
+        body { background-color: #193352; display: flex; min-height: 100vh; color: white; }
+
+
+        .sidebar { width: 140px; background-color: #ffffff; display: flex; flex-direction: column; align-items: center; padding: 40px 0; flex-shrink: 0; }
+        .logo { color: #193352; font-size: 2.2rem; font-weight: 900; letter-spacing: -1px; margin-bottom: 50px; text-decoration: none; }
+        .nav-menu { display: flex; flex-direction: column; gap: 35px; align-items: center; width: 100%; }
+        .nav-item { display: flex; justify-content: center; align-items: center; color: #193352; text-decoration: none; }
+        .nav-item svg { width: 38px; height: 38px; fill: none; stroke: #193352; stroke-width: 2.2; }
+        .nav-item.active svg { stroke: #2563eb; }
+
+
+        .main-container { flex-grow: 1; padding: 40px 60px; max-width: 850px; display: flex; flex-direction: column; gap: 25px; }
+        .page-title { font-size: 2rem; font-weight: 800; }
+
+
+        .notification-list { display: flex; flex-direction: column; gap: 15px; }
+
+
+        .notification-card {
+            background-color: #22426a;
+            border-radius: 12px;
+            padding: 20px 24px;
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+            border-left: 5px solid #2563eb; /* default fallback blue */
+        }
+
+
+        .notification-card.FLIGHT_REMINDER { border-left-color: #f59e0b; }
+        .notification-card.PROMO           { border-left-color: #10b981; }
+        .notification-card.PRICE_DROP       { border-left-color: #8b5cf6; }
+        .notification-card.CANCELLATION     { border-left-color: #ef4444; }
+
+
+        .notification-title { font-size: 1.1rem; font-weight: 800; color: #ffffff; margin-bottom: 6px; }
+        .notification-message { font-size: 0.95rem; color: #cbd5e1; line-height: 1.4; }
+
+
+        .empty-state {
+            color: #9ca3af;
+            font-size: 1.05rem;
+            text-align: center;
+            padding: 40px;
+            background-color: #22426a;
+            border-radius: 12px;
+        }
+    </style>
+</head>
+<body>
+<div class="sidebar">
+    <a th:href="@{/home}" class="logo">LKBY</a>
+    <nav class="nav-menu">
+        <a th:href="@{/home}" class="nav-item" title="Home">
+            <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        </a>
+        <a th:href="@{/filter}" class="nav-item" title="Filter Spots">
+            <svg viewBox="0 0 24 24"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/></svg>
+        </a>
+        <a th:href="@{/history}" class="nav-item" title="Booking History">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </a>
+        <a th:href="@{/notifications}" class="nav-item active" title="Notifications">
+            <svg viewBox="0 0 24 24"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+        </a>
+        <a th:href="@{/settings}" class="nav-item" title="Settings">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+        </a>
+    </nav>
+</div>
+
+
