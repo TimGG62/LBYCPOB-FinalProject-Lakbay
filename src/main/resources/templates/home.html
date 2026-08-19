@@ -13,6 +13,17 @@
         .nav-item.active svg { stroke: #2563eb; }
         .nav-item svg { width: 38px; height: 38px; fill: none; stroke: #193352; stroke-width: 2.2; }
         .main-container { flex-grow: 1; padding: 32px 48px; display: flex; flex-direction: column; gap: 32px; overflow-y: auto; }
+        .header-row { display: flex; align-items: center; width: 100%; }
+        .search-container { width: 100%; max-width: 720px; display: flex; align-items: center; background-color: #ffffff; border-radius: 30px; padding: 10px 20px; }
+        .search-icon { width: 20px; height: 20px; stroke: #132845; stroke-width: 2.5; fill: none; margin-right: 12px; }
+        .search-bar { border: none; background: transparent; width: 100%; font-size: 1rem; color: #132845; outline: none; font-weight: 500; }
+        .clear-icon { width: 18px; height: 18px; stroke: #132845; stroke-width: 2.5; fill: none; cursor: pointer; }
+        .spots-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+        .spot-card { position: relative; height: 360px; border-radius: 16px; overflow: hidden; text-decoration: none; transition: transform 0.2s ease, box-shadow 0.2s ease; }
+        .spot-card:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(0,0,0,0.3); }
+        .spot-img { width: 100%; height: 100%; object-fit: cover; position: absolute; inset: 0; }
+        .spot-overlay { position: absolute; inset: 0; background: rgba(0, 0, 0, 0.25); display: flex; align-items: center; justify-content: center; padding: 16px; }
+        .spot-title { font-size: 2.2rem; font-weight: 800; color: #ffffff; text-align: center; text-shadow: 0 2px 8px rgba(0,0,0,0.6); }
     </style>
 </head>
 
