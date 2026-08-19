@@ -7,7 +7,6 @@
     * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Trebuchet MS', sans-serif; }
     body { background-color: #193352; display: flex; min-height: 100vh; color: white; }
 
-
     .sidebar { width: 140px; background-color: #ffffff; display: flex; flex-direction: column; align-items: center; padding: 40px 0; flex-shrink: 0; }
     .logo { color: #193352; font-size: 2.2rem; font-weight: 900; letter-spacing: -1px; margin-bottom: 50px; text-decoration: none; }
     .nav-menu { display: flex; flex-direction: column; gap: 35px; align-items: center; width: 100%; }
@@ -15,10 +14,8 @@
     .nav-item svg { width: 38px; height: 38px; fill: none; stroke: #193352; stroke-width: 2.2; }
     .nav-item.active svg { stroke: #2563eb; }
 
-
     .main-container { flex-grow: 1; padding: 40px 60px; max-width: 800px; display: flex; flex-direction: column; gap: 25px; }
     .page-title { font-size: 2rem; font-weight: 800; }
-
 
     .alert-error {
       background-color: #7f1d1d;
@@ -27,7 +24,6 @@
       border-radius: 8px;
       font-weight: 600;
     }
-
 
     .checkout-card {
       background-color: #22426a;
@@ -39,21 +35,16 @@
       gap: 20px;
     }
 
-
     .info-row { display: flex; flex-direction: column; gap: 4px; border-bottom: 1px solid #374151; padding-bottom: 12px; }
     .info-row label { font-size: 0.85rem; color: #9ca3af; text-transform: uppercase; letter-spacing: 0.5px; font-weight: 700; }
     .info-row span { font-size: 1.1rem; font-weight: 600; color: #ffffff; }
 
-
     .total-amount { font-size: 1.6rem; font-weight: 900; color: #4ade80; }
-
 
     .form-group { display: flex; flex-direction: column; gap: 8px; }
     .form-group label { font-size: 0.95rem; font-weight: 700; }
 
-
     .input-row { display: flex; gap: 15px; flex-wrap: wrap; }
-
 
     select, input[type="text"] {
       padding: 12px;
@@ -65,10 +56,8 @@
       outline: none;
     }
 
-
     select { width: 180px; }
     input[type="text"] { flex-grow: 1; min-width: 220px; }
-
 
     .btn-group {
       display: flex;
@@ -76,7 +65,6 @@
       align-items: center;
       margin-top: 10px;
     }
-
 
     .back-btn {
       background-color: transparent;
@@ -94,3 +82,103 @@
       color: white;
       border-color: #64748b;
     }
+
+    .confirm-btn {
+      background-color: #2563eb;
+      color: white;
+      padding: 12px 28px;
+      border-radius: 8px;
+      border: none;
+      font-weight: 700;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+    .confirm-btn:hover { background-color: #1d4ed8; }
+
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: rgba(15, 23, 42, 0.75);
+      backdrop-filter: blur(5px);
+      z-index: 1000;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .modal-card {
+      background-color: #22426a;
+      color: #ffffff;
+      padding: 30px;
+      border-radius: 16px;
+      width: 90%;
+      max-width: 440px;
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
+      border: 1px solid #374151;
+      animation: modalFadeIn 0.25s ease-out;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    @keyframes modalFadeIn {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    .modal-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .modal-icon {
+      background-color: #2563eb;
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .modal-icon svg {
+      width: 24px;
+      height: 24px;
+      stroke: white;
+      fill: none;
+      stroke-width: 2.2;
+    }
+
+    .modal-title {
+      font-size: 1.3rem;
+      font-weight: 800;
+    }
+
+    .modal-summary {
+      background-color: #193352;
+      padding: 16px;
+      border-radius: 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      font-size: 0.95rem;
+      border: 1px solid #2d4f7c;
+    }
+
+    .modal-summary-item {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .modal-summary-item .label {
+      color: #9ca3af;
+      font-weight: 600;
+    }
+
+    .modal-summary-item .val {
+      font-weight: 700;
