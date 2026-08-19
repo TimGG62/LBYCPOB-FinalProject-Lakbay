@@ -13,15 +13,14 @@ public class Notification {
     public Notification() {}
 
     // UNDERSTAND: Initializes a complete notification with its title, message, and time.
-    public Notification(String id, String title, String message, String type, LocalDateTime timestamp) {
-        this.id = id;
+    public Notification(String title, String message, String type) {
+        this.id = java.util.UUID.randomUUID().toString();
         this.title = title;
         this.message = message;
         this.type = type;
-        this.timestamp = timestamp;
+        this.timestamp = LocalDateTime.now();
     }
 
-    // UNDERSTAND: Getters and Setters.
     public String getId() { return id; }
     public void setId(String id) { this.id = id; }
 
