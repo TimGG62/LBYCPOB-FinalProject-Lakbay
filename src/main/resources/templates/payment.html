@@ -242,5 +242,131 @@
     </a>
   </nav>
 </div>
+<div class="main-container">
+  <h1 class="page-title">Booking Checkout</h1>
+
+  <div th:if="${error}" class="alert-error" th:text="${error}">Error Message</div>
+
+  <div class="checkout-card">
+    <div class="info-row">
+      <label>Destination</label>
+      <span th:text="${destination}">Destination Name</span>
+    </div>
+
+    <div class="info-row">
+      <label>Date & Time</label>
+      <span th:text="${flightDate} + ' at ' + ${flightTime}">2026-07-30 at 08:00 AM</span>
+    </div>
+
+    <div class="info-row">
+      <label>Seats</label>
+      <span th:text="${seats}">1</span>
+    </div>
+
+    <div class="info-row" style="border-bottom: none;">
+      <label>Total Price</label>
+      <div class="total-amount" th:text="${formattedTotalPrice}">₱18,500.00</div>
+    </div>
+
+    <form id="checkoutForm" th:action="@{/pay}" method="post" style="display: flex; flex-direction: column; gap: 15px; margin-top: 10px;">
+      <input type="hidden" name="destination" th:value="${destination}" />
+      <input type="hidden" name="flightDate" th:value="${flightDate}" />
+      <input type="hidden" name="flightTime" th:value="${flightTime}" />
+      <input type="hidden" name="seats" th:value="${seats}" />
+      <input type="hidden" name="totalPrice" th:value="${totalPrice}" />
+
+      <div class="form-group">
+        <label for="mop">Payment Details</label>
+        <div class="input-row">
+          <select id="mop" name="mop" required>
+            <option value="GCASH" th:selected="${mop == 'GCASH'}">GCash</option>
+            <option value="CREDIT_CARD" th:selected="${mop == 'CREDIT_CARD'}">Credit Card</option>
+          </select>
+          <input type="text" id="accountOrCardNumber" name="accountOrCardNumber" placeholder="GCash (11 digits) or Card (16 digits)" required />
+        </div>
+      </div>
+
+      <div class="btn-group">
+        <button type="button" class="back-btn" onclick="history.back()">Back</button>
+        <button type="button" class="confirm-btn" onclick="openConfirmationModal()">Confirm Payment</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div id="bookingModal" class="modal-overlay">
+  <div class="modal-card">
+    <div class="modal-header">
+      <div class="modal-icon">
+        <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+      </div>
+      <div class="modal-title">Confirm Booking</div>
+    </div>
+
+    <p style="font-size: 0.95rem; color: #cbd5e1;">Please review your payment details before finalizing your booking:</p>
+
+    <div class="modal-summary">
+      <div class="modal-summary-item">
+        <span class="label">Destination</span>
+        <span class="val" th:text="${destination}">Destination</span>
+      </div>
+      <div class="modal-summary-item">
+        <span class="label">Payment Method</span>
+        <span class="val" id="summaryMop">GCash</span>
+      </div>
+      <div class="modal-summary-item">
+        <span class="label">Account / Card</span>
+        <span class="val" id="summaryAcc">1234</span>
+      </div>
+      <div class="modal-summary-item" style="border-top: 1px solid #2d4f7c; padding-top: 8px; margin-top: 4px;">
+        <span class="label">Total Amount</span>
+        <span class="val" style="color: #4ade80; font-size: 1.1rem;" th:text="${formattedTotalPrice}">₱18,500.00</span>
+      </div>
+    </div>
+
+    <div class="modal-actions">
+      <button type="button" class="cancel-btn" onclick="closeConfirmationModal()">Cancel</button>
+      <button type="button" class="pay-final-btn" onclick="submitPaymentForm()">Pay & Confirm</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  function openConfirmationModal() {
+    const form = document.getElementById('checkoutForm');
+
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      return;
+    }
+
+    const mopSelect = document.getElementById('mop');
+    const mopText = mopSelect.options[mopSelect.selectedIndex].text;
+    const accNumber = document.getElementById('accountOrCardNumber').value;
+
+    document.getElementById('summaryMop').innerText = mopText;
+    document.getElementById('summaryAcc').innerText = accNumber;
+
+    document.getElementById('bookingModal').style.display = 'flex';
+  }
+
+  function closeConfirmationModal() {
+    document.getElementById('bookingModal').style.display = 'none';
+  }
+
+  function submitPaymentForm() {
+    document.getElementById('checkoutForm').submit();
+  }
+
+  window.onclick = function(event) {
+    const modal = document.getElementById('bookingModal');
+    if (event.target === modal) {
+      closeConfirmationModal();
+    }
+  }
+</script>
+
+</body>
+</html>
 
 
