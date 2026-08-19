@@ -8,8 +8,21 @@ import ph.edu.dlsu.lbycpob.lakbay.model.UserSettings;
 import ph.edu.dlsu.lbycpob.lakbay.user.Passenger;
 import ph.edu.dlsu.lbycpob.lakbay.user.User;
 
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
+
 @Controller
 public class AuthController {
+
+    // In-memory user storage (Username/Email -> Password)
+    private final Map<String, String> userStore = new ConcurrentHashMap<>();
+
+    public AuthController() {
+        // Pre-loaded default test credentials
+        userStore.put("user@lakbay.com", "password123");
+        userStore.put("user", "password123");
+    }
+
     @GetMapping("/login")
     public String showLoginForm() {
         return "login";
@@ -23,7 +36,7 @@ public class AuthController {
             Model model
     ) {
         //UNDERSTAND: Mock authentication check
-        if (("user@lakbay.com".equals(email) || "user".equals(email)) && "password123".equals(password)) {
+        if (userStore.containsKey(email) && userStore.get(email).equals(password)) {
             User loggedUser = new Passenger("Juan Dela Cruz", email, password, "P12345678");
             session.setAttribute("currentUser", loggedUser);
             if (session.getAttribute("userSettings") == null) {
@@ -47,10 +60,18 @@ public class AuthController {
             @RequestParam(required = false, defaultValue = "Juan Dela Cruz") String name,
             @RequestParam String email, //UNDERSTAND: Receives the Username input field value
             @RequestParam String password,
-            @RequestParam(required = false, defaultValue = "P12345678") String passportNumber
+            @RequestParam String confirmPassword,
+            @RequestParam(required = false, defaultValue = "P12345678") String passportNumber,
+            Model model
     ) {
-        //UNDERSTAND: Mock registration logic
+        if (!password.equals(confirmPassword)) {
+            model.addAttribute("error", "Passwords do not match.");
+            return "register";
+        }
+
+        // Store new account
+        userStore.put(email, password);
+
         return "redirect:/login?registered=true";
     }
 }
-
