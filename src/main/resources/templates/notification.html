@@ -74,4 +74,25 @@
     </nav>
 </div>
 
+<div class="main-container">
+    <h1 class="page-title">Notifications</h1>
+
+
+    <div class="notification-list" th:if="${not #lists.isEmpty(notifications)}">
+        <div class="notification-card" th:classappend="${note.type}" th:each="note : ${notifications}">
+            <div class="notification-title" th:text="${note.title}">Flight Reminder</div>
+            <div class="notification-message" th:text="${note.message}">Flight details message here...</div>
+        </div>
+    </div>
+
+
+    <div class="empty-state" th:if="${#lists.isEmpty(notifications)}">
+        You have no notifications at this time.
+    </div>
+</div>
+
+
+</body>
+</html>
+
 
