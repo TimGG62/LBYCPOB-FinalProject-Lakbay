@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>LAKBAY</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Trebuchet MS', sans-serif; }
+    body { background-color: #193352; display: flex; min-height: 100vh; color: white; }
+
+
+    .sidebar { width: 140px; background-color: #ffffff; display: flex; flex-direction: column; align-items: center; padding: 40px 0; flex-shrink: 0; }
+    .logo { color: #193352; font-size: 2.2rem; font-weight: 900; letter-spacing: -1px; margin-bottom: 50px; text-decoration: none; }
+    .nav-menu { display: flex; flex-direction: column; gap: 35px; align-items: center; width: 100%; }
+    .nav-item { display: flex; justify-content: center; align-items: center; color: #193352; text-decoration: none; }
+    .nav-item svg { width: 38px; height: 38px; fill: none; stroke: #193352; stroke-width: 2.2; }
+    .nav-item.active svg { stroke: #2563eb; }
+
+
+    .main-container { flex-grow: 1; padding: 40px 60px; max-width: 800px; display: flex; flex-direction: column; gap: 25px; }
+    .page-title { font-size: 2rem; font-weight: 800; }
+
+
+    .alert-error {
+      background-color: #7f1d1d;
+      color: #fca5a5;
+      padding: 12px 16px;
+      border-radius: 8px;
+      font-weight: 600;
+    }
+
+
+    .checkout-card {
+      background-color: #22426a;
+      border-radius: 16px;
+      padding: 35px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+
+    .info-row { display: flex; flex-direction: column; gap: 4px; border-bottom: 1px solid #374151; padding-bottom: 12px; }
+    .info-row label { font-size: 0.85rem; color: #9ca3af; text-transform: uppercase; letter-spacing: 0.5px; font-weight: 700; }
+    .info-row span { font-size: 1.1rem; font-weight: 600; color: #ffffff; }
+
+
+    .total-amount { font-size: 1.6rem; font-weight: 900; color: #4ade80; }
+
+
+    .form-group { display: flex; flex-direction: column; gap: 8px; }
+    .form-group label { font-size: 0.95rem; font-weight: 700; }
+
+
+    .input-row { display: flex; gap: 15px; flex-wrap: wrap; }
+
+
+    select, input[type="text"] {
+      padding: 12px;
+      border-radius: 8px;
+      border: 1px solid #374151;
+      background-color: #193352;
+      color: white;
+      font-size: 1rem;
+      outline: none;
+    }
+
+
+    select { width: 180px; }
+    input[type="text"] { flex-grow: 1; min-width: 220px; }
+
+
+    .btn-group {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      margin-top: 10px;
+    }
+
+
+    .back-btn {
+      background-color: transparent;
+      color: #cbd5e1;
+      border: 1px solid #475569;
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .back-btn:hover {
+      background-color: #334155;
+      color: white;
+      border-color: #64748b;
+    }
