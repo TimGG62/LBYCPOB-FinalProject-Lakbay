@@ -24,9 +24,7 @@ public class FilterController {
     private final FilterService filterService;
 
     // Inject required service dependencies
-    public FilterController(TouristSpotService touristSpotService, FilterService filterService) {
-        this.touristSpotService = touristSpotService;
-        this.filterService = filterService;
+    public FilterController(TouristSpotService touristSpotService, FilterService filterService) {this.touristSpotService = touristSpotService;this.filterService = filterService;
     }
 
     // Displays the filter page
