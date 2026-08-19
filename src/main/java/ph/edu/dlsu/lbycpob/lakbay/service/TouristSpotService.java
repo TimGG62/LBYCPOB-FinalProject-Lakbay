@@ -55,6 +55,50 @@ public class TouristSpotService {
         addSpot("bor-8", "Ibajay Century-Old Mangrove Park", "Boracay", "/images/bor-8.jpg", "Domestic");
         addSpot("bor-9", "Libacao Aklan River Bamboo Rafting", "Boracay", "/images/bor-9.jpg", "Domestic");
         addSpot("bor-10", "Batan Tinagong Dagat Inlet", "Boracay", "/images/bor-10.jpg", "Domestic");
+
+        addSpot("sia-1", "Del Carmen Sugba Lagoon & Mangroves", "Siargao", "/images/sia-1.jpg", "Domestic");
+        addSpot("sia-2", "General Luna Cloud 9 Surfing Boardwalk", "Siargao", "/images/sia-2.jpg", "Domestic");
+        addSpot("sia-3", "Dapa Town Boardwalk & Inter-Island Port", "Siargao", "/images/sia-3.jpg", "Domestic");
+        addSpot("sia-4", "Pilar Magpupungko Natural Rock Pools", "Siargao", "/images/sia-4.jpg", "Domestic");
+        addSpot("sia-5", "Burgos Coconut Viewpoint & Pacifico Surf", "Siargao", "/images/sia-5.jpg", "Domestic");
+        addSpot("sia-6", "Daku, Guyam, & Naked Island Trio", "Siargao", "/images/sia-6.jpg", "Domestic");
+        addSpot("sia-7", "Sohoton Cove & Jellyfish Sanctuary", "Siargao", "/images/sia-7.jpg", "Domestic");
+        addSpot("sia-8", "Santa Monica Taktak Falls", "Siargao", "/images/sia-8.jpg", "Domestic");
+        addSpot("sia-9", "San Isidro Alegria & Secret Beach Coves", "Siargao", "/images/sia-9.jpg", "Domestic");
+        addSpot("sia-10", "Surigao City Mabua Pebble Beach", "Siargao", "/images/sia-10.jpg", "Domestic");
+
+        addSpot("dvo-1", "Davao City Philippine Eagle & Malagos Park", "Davao", "/images/dvo-1.jpg", "Domestic");
+        addSpot("dvo-2", "Samal Island Pearl Farm & Hagimit Falls", "Davao", "/images/dvo-2.jpg", "Domestic");
+        addSpot("dvo-3", "Digos Mt. Apo Base & Camp Sabros", "Davao", "/images/dvo-3.jpg", "Domestic");
+        addSpot("dvo-4", "Toril Eden Nature Park & Eco-Trails", "Davao", "/images/dvo-4.jpg", "Domestic");
+        addSpot("dvo-5", "Marilog District Sea of Clouds Viewpoints", "Davao", "/images/dvo-5.jpg", "Domestic");
+        addSpot("dvo-6", "Mati City Dahican Beach Surfing", "Davao", "/images/dvo-6.jpg", "Domestic");
+        addSpot("dvo-7", "Tagum City Banana Beach Resort", "Davao", "/images/dvo-7.jpg", "Domestic");
+        addSpot("dvo-8", "New Bataan Awao Multi-Tiered Waterfalls", "Davao", "/images/dvo-8.jpg", "Domestic");
+        addSpot("dvo-9", "Compostela Mainit Hot Springs Regional Park", "Davao", "/images/dvo-9.jpg", "Domestic");
+        addSpot("dvo-10", "Magsaysay Passig Islet Eco-Park Sanctuary", "Davao", "/images/dvo-10.jpg", "Domestic");
+
+        addSpot("ilo-1", "Iloilo City Calle Real & River Esplanade", "Iloilo", "/images/ilo-1.jpg", "Domestic");
+        addSpot("ilo-2", "Miagao Fortress Church (UNESCO Site)", "Iloilo", "/images/ilo-2.jpg", "Domestic");
+        addSpot("ilo-3", "Gigantes Islands Tangke Lagoon & Cabugao", "Iloilo", "/images/ilo-3.jpg", "Domestic");
+        addSpot("ilo-4", "Guimaras Island Mango Orchards & Guisi Light", "Iloilo", "/images/ilo-4.jpg", "Domestic");
+        addSpot("ilo-5", "Jaro District Cathedral & Colonial Mansions", "Iloilo", "/images/ilo-5.jpg", "Domestic");
+        addSpot("ilo-6", "Molo Church & Molo Mansion Park", "Iloilo", "/images/ilo-6.jpg", "Domestic");
+        addSpot("ilo-7", "Concepcion Pan de Azucar Island & Sandbar", "Iloilo", "/images/ilo-7.jpg", "Domestic");
+        addSpot("ilo-8", "San Joaquin Camposanto Historic Cemetery", "Iloilo", "/images/ilo-8.jpg", "Domestic");
+        addSpot("ilo-9", "Santa Barbara Historic Church & Museum", "Iloilo", "/images/ilo-9.jpg", "Domestic");
+        addSpot("ilo-10", "Passi City Pineapple Plantation Agro-Tourism", "Iloilo", "/images/ilo-10.jpg", "Domestic");
+
+        addSpot("bic-1", "Cagsawa Ruins Park & Mt. Mayon Backdrop", "Bicol", "/images/bic-1.jpg", "Domestic");
+        addSpot("bic-2", "Legazpi Boulevard & Sumlang Lake ATV Tours", "Bicol", "/images/bic-2.jpg", "Domestic");
+        addSpot("bic-3", "Camalig Quitinday Hills & Hoyop-Hoyopan Cave", "Bicol", "/images/bic-3.jpg", "Domestic");
+        addSpot("bic-4", "Naga City Basilica & Mt. Isarog Park", "Bicol", "/images/bic-4.jpg", "Domestic");
+        addSpot("bic-5", "Caramoan Islands Paniman Beach & Matukad", "Bicol", "/images/bic-5.jpg", "Domestic");
+        addSpot("bic-6", "Donsol Whale Shark Eco-Interaction Site", "Bicol", "/images/bic-6.jpg", "Domestic");
+        addSpot("bic-7", "Sorsogon Subic Pink Beach & Bulusan Lake", "Bicol", "/images/bic-7.jpg", "Domestic");
+        addSpot("bic-8", "Bacacay Misibis Bay & Cagraray Eco-Park", "Bicol", "/images/bic-8.jpg", "Domestic");
+        addSpot("bic-9", "Ligao City Kawa-Kawa Hill & Sunflower Farm", "Bicol", "/images/bic-9.jpg", "Domestic");
+        addSpot("bic-10", "Calaguas Islands Mahabang Buhangin Beach", "Bicol", "/images/bic-10.jpg", "Domestic");
     }
 
     private void addSpot(String id, String name, String location, String imageUrl, String scope) {
