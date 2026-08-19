@@ -143,6 +143,50 @@ public class TouristSpotService {
         addSpot("id-8", "Manado Bunaken National Marine Coral Walls", "Indonesia", "/images/id-8.jpg", "International");
         addSpot("id-9", "Makassar Fort Rotterdam & Losari Beach", "Indonesia", "/images/id-9.jpg", "International");
         addSpot("id-10", "Banda Aceh Tsunami Museum & Grand Mosque", "Indonesia", "/images/id-10.jpg", "International");
+
+        addSpot("th-1", "Bangkok Grand Palace & Wat Arun Temple", "Thailand", "/images/th-1.jpg", "International");
+        addSpot("th-2", "Phuket Patong Beach & Phi Phi Gateway", "Thailand", "/images/th-2.jpg", "International");
+        addSpot("th-3", "Chiang Mai Doi Suthep & Night Bazaar", "Thailand", "/images/th-3.jpg", "International");
+        addSpot("th-4", "Krabi Railay Limestone Cliffs & Emerald Pool", "Thailand", "/images/th-4.jpg", "International");
+        addSpot("th-5", "Koh Samui Chaweng & Ang Thong Marine Park", "Thailand", "/images/th-5.jpg", "International");
+        addSpot("th-6", "Chiang Rai White Temple & Golden Triangle", "Thailand", "/images/th-6.jpg", "International");
+        addSpot("th-7", "Hat Yai Floating Market & Waterfall", "Thailand", "/images/th-7.jpg", "International");
+        addSpot("th-8", "Udon Thani Red Lotus Sea & Ban Chiang", "Thailand", "/images/th-8.jpg", "International");
+        addSpot("th-9", "Sukhothai Historical Park Ancient Capital", "Thailand", "/images/th-9.jpg", "International");
+        addSpot("th-10", "Pattaya Sanctuary of Truth & Nong Nooch", "Thailand", "/images/th-10.jpg", "International");
+
+        addSpot("jp-1", "Tokyo Shibuya Crossing & Senso-ji Temple", "Japan", "/images/jp-1.jpg", "International");
+        addSpot("jp-2", "Osaka Dotonbori & Universal Studios Japan", "Japan", "/images/jp-2.jpg", "International");
+        addSpot("jp-3", "Fukuoka Ohori Park & Yatai Food Stalls", "Japan", "/images/jp-3.jpg", "International");
+        addSpot("jp-4", "Sapporo Odori Snow Festival & Otaru Canal", "Japan", "/images/jp-4.jpg", "International");
+        addSpot("jp-5", "Nagoya Castle & Toyota Museum", "Japan", "/images/jp-5.jpg", "International");
+        addSpot("jp-6", "Okinawa Churaumi Aquarium & Kokusai St", "Japan", "/images/jp-6.jpg", "International");
+        addSpot("jp-7", "Hiroshima Peace Park & Miyajima Torii Gate", "Japan", "/images/jp-7.jpg", "International");
+        addSpot("jp-8", "Sendai Aoba Castle Ruins & Matsushima Bay", "Japan", "/images/jp-8.jpg", "International");
+        addSpot("jp-9", "Takamatsu Ritsurin Garden & Naoshima Island", "Japan", "/images/jp-9.jpg", "International");
+        addSpot("jp-10", "Kagoshima Sakurajima Active Volcano Lookout", "Japan", "/images/jp-10.jpg", "International");
+
+        addSpot("kr-1", "Seoul Gyeongbokgung Palace & N Seoul Tower", "South Korea", "/images/kr-1.jpg", "International");
+        addSpot("kr-2", "Busan Haeundae Beach & Gamcheon Village", "South Korea", "/images/kr-2.jpg", "International");
+        addSpot("kr-3", "Jeju Seongsan Sunrise Peak & Hallasan Mt", "South Korea", "/images/kr-3.jpg", "International");
+        addSpot("kr-4", "Daegu Seomun Night Market & Donghwasa", "South Korea", "/images/kr-4.jpg", "International");
+        addSpot("kr-5", "Cheongju Early Printing Museum & Herb Land", "South Korea", "/images/kr-5.jpg", "International");
+        addSpot("kr-6", "Gwangju Mudeungsan National Park", "South Korea", "/images/kr-6.jpg", "International");
+        addSpot("kr-7", "Mokpo Marine Cable Car & Purple Island", "South Korea", "/images/kr-7.jpg", "International");
+        addSpot("kr-8", "Yangyang Seoraksan & Nami Island Gateway", "South Korea", "/images/kr-8.jpg", "International");
+        addSpot("kr-9", "Ulsan Daewangam Park & Taehwagang Garden", "South Korea", "/images/kr-9.jpg", "International");
+        addSpot("kr-10", "Jeonju Hanok Heritage Village Gateway", "South Korea", "/images/kr-10.jpg", "International");
+
+        addSpot("cn-1", "Guangzhou Canton Tower & Shamian Island", "China", "/images/cn-1.jpg", "International");
+        addSpot("cn-2", "Xiamen Gulangyu UNESCO Island & Nanputuo", "China", "/images/cn-2.jpg", "International");
+        addSpot("cn-3", "Shanghai The Bund Waterfront & Disneyland", "China", "/images/cn-3.jpg", "International");
+        addSpot("cn-4", "Beijing Great Wall & Forbidden City", "China", "/images/cn-4.jpg", "International");
+        addSpot("cn-5", "Shenzhen Window of the World & Ping An Deck", "China", "/images/cn-5.jpg", "International");
+        addSpot("cn-6", "Chengdu Giant Panda Research Base & Jinli", "China", "/images/cn-6.jpg", "International");
+        addSpot("cn-7", "Hangzhou West Lake UNESCO & Lingyin Temple", "China", "/images/cn-7.jpg", "International");
+        addSpot("cn-8", "Xi'an Terracotta Army & Ancient City Wall", "China", "/images/cn-8.jpg", "International");
+        addSpot("cn-9", "Kunming Stone Forest Shilin Park & Dianchi", "China", "/images/cn-9.jpg", "International");
+        addSpot("cn-10", "Sanya Hainan Yalong Bay & Nanshan Temple", "China", "/images/cn-10.jpg", "International");
     }
 
     private void addSpot(String id, String name, String location, String imageUrl, String scope) {
