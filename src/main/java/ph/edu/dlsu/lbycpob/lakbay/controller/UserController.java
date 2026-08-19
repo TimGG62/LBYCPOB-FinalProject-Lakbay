@@ -1,25 +1,14 @@
 package ph.edu.dlsu.lbycpob.lakbay.controller;
 
-
 import jakarta.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import ph.edu.dlsu.lbycpob.lakbay.model.UserSettings;
-import ph.edu.dlsu.lbycpob.lakbay.service.BookingService;
 
 
 @Controller
 public class UserController {
-
-
-    private final BookingService bookingService;
-
-
-    public UserController(BookingService bookingService) {
-        this.bookingService = bookingService;
-    }
-
 
     @GetMapping("/settings")
     public String showSettings(HttpSession session, Model model) {
@@ -32,7 +21,6 @@ public class UserController {
         return "settings";
     }
 
-
     @PostMapping("/settings/update")
     public String updateSettings(
             @RequestParam String currency,
@@ -44,22 +32,7 @@ public class UserController {
         session.setAttribute("userSettings", settings);
         return "redirect:/settings?updated=true";
     }
-    //UNDERSTAND: Shows booking history
-    @GetMapping("/history")
-    public String showHistory(Model model) {
-        model.addAttribute("bookings", bookingService.getUserBookings());
-        return "history";
-    }
-    //UNDERSTAND: Cancels a user's booking
-    @PostMapping("/history/cancel")
-    public String cancelBooking(@RequestParam String bookingId, Model model) {
-        boolean cancelled = bookingService.cancelBooking(bookingId);
-        if (!cancelled) {
-            return "redirect:/history?error=cannot_cancel";
-        }
-        return "redirect:/history?cancelled=true";
-    }
-    //UNDERSTAND: Logs out a user
+
     @GetMapping("/logout")
     public String logout(HttpSession session) {
         session.invalidate();
