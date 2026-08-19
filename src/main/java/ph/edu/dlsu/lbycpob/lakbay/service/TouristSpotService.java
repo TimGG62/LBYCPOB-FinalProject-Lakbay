@@ -99,6 +99,50 @@ public class TouristSpotService {
         addSpot("bic-8", "Bacacay Misibis Bay & Cagraray Eco-Park", "Bicol", "/images/bic-8.jpg", "Domestic");
         addSpot("bic-9", "Ligao City Kawa-Kawa Hill & Sunflower Farm", "Bicol", "/images/bic-9.jpg", "Domestic");
         addSpot("bic-10", "Calaguas Islands Mahabang Buhangin Beach", "Bicol", "/images/bic-10.jpg", "Domestic");
+
+        addSpot("tw-1", "Taipei 101 & Shilin Night Market", "Taiwan", "/images/tw-1.jpg", "International");
+        addSpot("tw-2", "Kaohsiung Pier-2 Art Center & Lotus Pond", "Taiwan", "/images/tw-2.jpg", "International");
+        addSpot("tw-3", "Taichung Rainbow Village & Gaomei Wetlands", "Taiwan", "/images/tw-3.jpg", "International");
+        addSpot("tw-4", "Tainan Anping Old Fort & Chimei Museum", "Taiwan", "/images/tw-4.jpg", "International");
+        addSpot("tw-5", "Hualien Taroko Gorge & Qixingtan Beach", "Taiwan", "/images/tw-5.jpg", "International");
+        addSpot("tw-6", "Taitung Sanxiantai Dragon Bridge", "Taiwan", "/images/tw-6.jpg", "International");
+        addSpot("tw-7", "Penghu Double-Heart Stacked Stones", "Taiwan", "/images/tw-7.jpg", "International");
+        addSpot("tw-8", "Kinmen Zhaishan Military Tunnel", "Taiwan", "/images/tw-8.jpg", "International");
+        addSpot("tw-9", "Chiayi Alishan Forest Railway & Tea", "Taiwan", "/images/tw-9.jpg", "International");
+        addSpot("tw-10", "Matsu Beihai Tunnel & Blue Tears Waters", "Taiwan", "/images/tw-10.jpg", "International");
+
+        addSpot("vn-1", "Ho Chi Minh Cu Chi Tunnels & Ben Thanh", "Vietnam", "/images/vn-1.jpg", "International");
+        addSpot("vn-2", "Hanoi Hoan Kiem Lake & Ha Long Bay Gateway", "Vietnam", "/images/vn-2.jpg", "International");
+        addSpot("vn-3", "Da Nang Marble Mtns & Ba Na Golden Bridge", "Vietnam", "/images/vn-3.jpg", "International");
+        addSpot("vn-4", "Nha Trang VinWonders & Po Nagar Towers", "Vietnam", "/images/vn-4.jpg", "International");
+        addSpot("vn-5", "Phu Quoc Starfish Beach & Longest Cable Car", "Vietnam", "/images/vn-5.jpg", "International");
+        addSpot("vn-6", "Da Lat Crazy House & Alpine Coaster", "Vietnam", "/images/vn-6.jpg", "International");
+        addSpot("vn-7", "Hue Imperial Citadel City & Khai Dinh Tomb", "Vietnam", "/images/vn-7.jpg", "International");
+        addSpot("vn-8", "Hai Phong Cat Ba Island & Lan Ha Bay", "Vietnam", "/images/vn-8.jpg", "International");
+        addSpot("vn-9", "Can Tho Cai Rang Floating Market", "Vietnam", "/images/vn-9.jpg", "International");
+        addSpot("vn-10", "Quy Nhon Ky Co Beach & Eo Gio Wind Cliff", "Vietnam", "/images/vn-10.jpg", "International");
+
+        addSpot("my-1", "Kuala Lumpur Petronas Towers & Batu Caves", "Malaysia", "/images/my-1.jpg", "International");
+        addSpot("my-2", "Penang George Town Heritage Art & Hill", "Malaysia", "/images/my-2.jpg", "International");
+        addSpot("my-3", "Langkawi Sky Bridge & Pantai Cenang Beach", "Malaysia", "/images/my-3.jpg", "International");
+        addSpot("my-4", "Kota Kinabalu Mt. Kinabalu & Marine Park", "Malaysia", "/images/my-4.jpg", "International");
+        addSpot("my-5", "Kuching Bako Park Proboscis Monkeys", "Malaysia", "/images/my-5.jpg", "International");
+        addSpot("my-6", "Johor Bahru Legaland Malaysia Resort", "Malaysia", "/images/my-6.jpg", "International");
+        addSpot("my-7", "Ipoh Kek Lok Tong Cave & Old Town Walk", "Malaysia", "/images/my-7.jpg", "International");
+        addSpot("my-8", "Sandakan Sepilok Orangutan Centre", "Malaysia", "/images/my-8.jpg", "International");
+        addSpot("my-9", "Miri Niah Caves & Gunung Mulu Gateway", "Malaysia", "/images/my-9.jpg", "International");
+        addSpot("my-10", "Malacca Jonker Street & A Famosa Fort", "Malaysia", "/images/my-10.jpg", "International");
+
+        addSpot("id-1", "Bali Uluwatu Temple & Ubud Sacred Forest", "Indonesia", "/images/id-1.jpg", "International");
+        addSpot("id-2", "Jakarta Monas Monument & Kota Tua Heritage", "Indonesia", "/images/id-2.jpg", "International");
+        addSpot("id-3", "Yogyakarta Borobudur & Prambanan Temples", "Indonesia", "/images/id-3.jpg", "International");
+        addSpot("id-4", "Lombok Gili Islands & Mt. Rinjani Trek", "Indonesia", "/images/id-4.jpg", "International");
+        addSpot("id-5", "Labuan Bajo Komodo Dragons & Pink Beach", "Indonesia", "/images/id-5.jpg", "International");
+        addSpot("id-6", "Surabaya Mount Bromo Volcano Gateway", "Indonesia", "/images/id-6.jpg", "International");
+        addSpot("id-7", "Medan Lake Toba Volcanic Crater Lake", "Indonesia", "/images/id-7.jpg", "International");
+        addSpot("id-8", "Manado Bunaken National Marine Coral Walls", "Indonesia", "/images/id-8.jpg", "International");
+        addSpot("id-9", "Makassar Fort Rotterdam & Losari Beach", "Indonesia", "/images/id-9.jpg", "International");
+        addSpot("id-10", "Banda Aceh Tsunami Museum & Grand Mosque", "Indonesia", "/images/id-10.jpg", "International");
     }
 
     private void addSpot(String id, String name, String location, String imageUrl, String scope) {
