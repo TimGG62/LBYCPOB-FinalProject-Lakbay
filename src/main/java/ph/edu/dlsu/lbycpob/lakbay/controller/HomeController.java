@@ -1,60 +1,44 @@
 package ph.edu.dlsu.lbycpob.lakbay.controller;
 
+import jakarta.servlet.http.HttpSession;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
 import ph.edu.dlsu.lbycpob.lakbay.model.TouristSpot;
-import ph.edu.dlsu.lbycpob.lakbay.service.FilterService;
 import ph.edu.dlsu.lbycpob.lakbay.service.TouristSpotService;
 
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Controller
 public class HomeController {
-    private final FilterService filterService;
-    private final TouristSpotService touristSpotService;
 
-    public HomeController(FilterService filterService, TouristSpotService touristSpotService) {
-        this.filterService = filterService;
-        this.touristSpotService = touristSpotService;
-    }
+    @Autowired
+    private TouristSpotService touristSpotService;
 
-    @GetMapping("/")
-    public String root() {
-        return "redirect:/login";
-    }
     //UNDERSTAND: Displays the home page
-    @GetMapping("/home")
-    public String home(@RequestParam(required = false, defaultValue = "international") String tab, Model model) {
-        model.addAttribute("activeTab", tab);
+    @GetMapping({"/", "/home"})
+    public String home(HttpSession session, Model model) {
+        if (session.getAttribute("currentUser") == null) {
+            return "redirect:/login";
+        }
 
+        List<TouristSpot> allSpots = touristSpotService.getAllSpots();
+        List<TouristSpot> uniqueLocations = new ArrayList<>();
+        Set<String> seenLocations = new HashSet<>();
 
-        List<TouristSpot> spots = touristSpotService.getAllSpots().stream()
-                .filter(s -> tab.equalsIgnoreCase(s.getScope()))
-                .toList();
-        model.addAttribute("spots", spots);
+        for (TouristSpot spot : allSpots) {
+            String location = spot.getCountryOrLocation();
+            if (location != null && !seenLocations.contains(location.toLowerCase())) {
+                seenLocations.add(location.toLowerCase());
+                uniqueLocations.add(spot);
+            }
+        }
+
+        model.addAttribute("spots", uniqueLocations);
         return "home";
     }
-    //UNDERSTAND: Displays the filter page
-    @GetMapping("/filter")
-    public String showFilterPage() {
-        return "filter";
-    }
-
-    @PostMapping("/filter/results")
-    public String processFilter(
-            @RequestParam(defaultValue = "Any") String scope,
-            @RequestParam(defaultValue = "100000") double maxBudget,
-            @RequestParam(defaultValue = "30") int maxDays,
-            @RequestParam(required = false) List<String> vibes,
-            @RequestParam(defaultValue = "1") int pax,
-            Model model
-    ) {
-        List<TouristSpot> dataset = touristSpotService.getAllSpots();
-        List<TouristSpot> top5 = filterService.findTop5Destinations(dataset, scope, maxBudget, maxDays, vibes, pax);
-
-        model.addAttribute("topSpots", top5);
-        return "filter-results";
-    }
 }
-
