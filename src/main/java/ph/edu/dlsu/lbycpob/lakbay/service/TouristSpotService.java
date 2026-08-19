@@ -88,6 +88,67 @@ public class TouristSpotService {
                 estimatedPrice = 2500.00;
                 airportCode = "DRP";
                 break;
+            case "Taiwan":
+                distance = "~1,200 km";
+                flightDuration = "2.0 - 2.5 hrs";
+                estimatedPrice = 7000.00;
+                airportCode = "TPE";
+                break;
+            case "Vietnam":
+                distance = "~1,600 km";
+                flightDuration = "3.0 - 3.5 hrs";
+                estimatedPrice = 8000.00;
+                airportCode = "SGN";
+                break;
+            case "Malaysia":
+                distance = "~2,400 km";
+                flightDuration = "3.5 - 4.0 hrs";
+                estimatedPrice = 8500.00;
+                airportCode = "KUL";
+                break;
+            case "Indonesia":
+                distance = "~2,800 km";
+                flightDuration = "4.0 - 4.5 hrs";
+                estimatedPrice = 10000.00;
+                airportCode = "DPS";
+                break;
+            case "Thailand":
+                distance = "~2,300 km";
+                flightDuration = "3.5 - 4.0 hrs";
+                estimatedPrice = 8000.00;
+                airportCode = "BKK";
+                break;
+            case "Japan":
+                distance = "~3,000 km";
+                flightDuration = "4.0 - 4.5 hrs";
+                estimatedPrice = 12000.00;
+                airportCode = "NRT";
+                break;
+            case "South Korea":
+                distance = "~2,600 km";
+                flightDuration = "3.5 - 4.0 hrs";
+                estimatedPrice = 9000.00;
+                airportCode = "ICN";
+                break;
+            case "China":
+                distance = "~1,800 km";
+                flightDuration = "2.5 - 4.5 hrs";
+                estimatedPrice = 10000.00;
+                airportCode = "CAN";
+                break;
+            default:
+                distance = "~500 km";
+                flightDuration = "1.5 hrs";
+                estimatedPrice = 5000.00;
+                airportCode = "MNL";
+                break;
+        }
+
+        String description = "Explore the best sights and top attractions in " + location + ".";
+
+        spots.add(new TouristSpot(id, name, location, scope, airportCode, description, distance, flightDuration, estimatedPrice, 4.8, imageUrl
+        ));
+    }
 
     public List<TouristSpot> getAllSpots() {return spots;}
 
