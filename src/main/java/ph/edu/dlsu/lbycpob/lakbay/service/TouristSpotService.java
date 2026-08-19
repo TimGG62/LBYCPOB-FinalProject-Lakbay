@@ -33,9 +33,64 @@ public class TouristSpotService {
         spots.add(new TouristSpot("16", "The Bund & Shanghai Disneyland", "China", "International", "PVG", "Yu Garden, modern skyline, and historic waterfronts", "~1,800 km", "2.5 - 4.5 hrs", 14500, 4.6, "shanghai.jpg"));
     }
 
-    public List<TouristSpot> getAllSpots() { return spots; }
+    private void addSpot(String id, String name, String location, String imageUrl, String scope) {
+        String distance = "";
+        String flightDuration = "";
+        double estimatedPrice = 0.0;
+        String airportCode = "";
 
-    public TouristSpot getSpotById(String id) {
-        return spots.stream().filter(s -> s.getId().equals(id)).findFirst().orElse(null);
+        switch (location) {
+            case "Palawan":
+                distance = "~580 km";
+                flightDuration = "1.0 - 1.5 hrs";
+                estimatedPrice = 3500.00;
+                airportCode = "PPS";
+                break;
+            case "Cebu":
+                distance = "~570 km";
+                flightDuration = "1.25 - 1.5 hrs";
+                estimatedPrice = 3000.00;
+                airportCode = "CEB";
+                break;
+            case "Bohol":
+                distance = "~630 km";
+                flightDuration = "1.25 - 1.5 hrs";
+                estimatedPrice = 3500.00;
+                airportCode = "TAG";
+                break;
+            case "Boracay":
+                distance = "~310 km";
+                flightDuration = "1.0 - 1.25 hrs";
+                estimatedPrice = 3000.00;
+                airportCode = "MPH";
+                break;
+            case "Siargao":
+                distance = "~750 km";
+                flightDuration = "2.0 hrs";
+                estimatedPrice = 4500.00;
+                airportCode = "IAO";
+                break;
+            case "Davao":
+                distance = "~960 km";
+                flightDuration = "1.75 - 2.0 hrs";
+                estimatedPrice = 3500.00;
+                airportCode = "DVO";
+                break;
+            case "Iloilo":
+                distance = "~460 km";
+                flightDuration = "1.0 - 1.25 hrs";
+                estimatedPrice = 2800.00;
+                airportCode = "ILO";
+                break;
+            case "Bicol":
+                distance = "~330 km";
+                flightDuration = "1.0 hr";
+                estimatedPrice = 2500.00;
+                airportCode = "DRP";
+                break;
+
+    public List<TouristSpot> getAllSpots() {return spots;}
+
+    public TouristSpot getSpotById(String id) {return spots.stream().filter(s -> s.getId() != null && s.getId().equalsIgnoreCase(id)).findFirst().orElse(null);
     }
 }
