@@ -5,12 +5,13 @@ import ph.edu.dlsu.lbycpob.lakbay.model.Booking;
 import ph.edu.dlsu.lbycpob.lakbay.model.Ticket;
 import ph.edu.dlsu.lbycpob.lakbay.payment.PaymentMethod;
 import ph.edu.dlsu.lbycpob.lakbay.user.User;
+
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
-// UNDERSTAND: Handles the core logic for creating, cancelling, and paying for flight bookings.
 @Service
 public class BookingService implements GenericService<Ticket>, BookingSystem {
 
@@ -18,18 +19,18 @@ public class BookingService implements GenericService<Ticket>, BookingSystem {
     private final List<Booking> userBookings = new ArrayList<>();
 
     // UNDERSTAND: Generates a new booking with a random ID and saves it to the user's list.
-    public Booking createBooking(String destination, String flightDateStr, String flightTime, int seats, double totalPrice) {
-        Booking booking = new Booking(UUID.randomUUID().toString().substring(0, 8).toUpperCase(),
+    public void createBooking(String destination, String flightDateStr, String flightTime, int seats, double totalPrice) {
+        Booking booking = new Booking(
+                UUID.randomUUID().toString().substring(0, 8).toUpperCase(),
                 "Juan Dela Cruz",
                 destination,
                 LocalDate.parse(flightDateStr),
                 flightTime,
-                seats,totalPrice,
-                "BOOKED");
-
+                seats,
+                totalPrice,
+                "BOOKED"
+        );
         userBookings.add(booking);
-
-        return booking;
     }
 
     // UNDERSTAND: Attempting the cancellation of booking seeing if it meets the 7-day rule.
@@ -53,18 +54,23 @@ public class BookingService implements GenericService<Ticket>, BookingSystem {
     }
 
     // UNDERSTAND: Retrieves all tickets booked across the entire system.
-    @Override
-    public List<Ticket> getAll() {
-        return globalBookedTickets;
+    public List<Booking> getActiveUserBookings() {
+        return userBookings.stream()
+                .filter(booking -> !"CANCELLED".equalsIgnoreCase(booking.getStatus()))
+                .collect(Collectors.toList());
     }
 
-    // UNDERSTAND: Adds a ticket to the global list of all booked tickets.
     @Override
     public void add(Ticket ticket) {
         if (ticket == null) {
             throw new Ticket.InvalidBookingException("Cannot book a null ticket.");
         }
         globalBookedTickets.add(ticket);
+    }
+
+    @Override
+    public List<Ticket> getAll() {
+        return globalBookedTickets;
     }
 
     // UNDERSTAND: Processes payment and finalizes the ticket booking for a specific logged in user.
