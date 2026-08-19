@@ -73,3 +73,75 @@
             margin-right: 20px;
             white-space: nowrap;
         }
+        .form-row input {
+            background-color: #555555;
+            border: none;
+            border-radius: 25px;
+            height: 45px;
+            width: 260px;
+            padding: 0 20px;
+            color: white;
+            font-size: 1.1rem;
+            outline: none;
+        }
+        .actions {
+            margin-top: 25px;
+        }
+        .btn-submit {
+            background: none;
+            border: none;
+            color: #193352;
+            font-size: 1.4rem;
+            font-weight: 700;
+            text-decoration: underline;
+            cursor: pointer;
+            letter-spacing: 1px;
+        }
+    </style>
+</head>
+<body>
+
+
+<div class="logo-header">
+    <div class="logo-icon">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="white">
+            <polygon points="12 2 15 12 12 22 9 12"/>
+            <polygon points="22 12 12 15 2 12 12 9"/>
+        </svg>
+    </div>
+    <span>LAKBAY</span>
+</div>
+
+
+<div class="card">
+    <h1 class="welcome-title">WELCOME!</h1>
+
+
+    <form th:action="@{/register}" method="post">
+        <div class="form-row">
+            <label>Username:</label>
+            <input type="text" name="email" required />
+        </div>
+
+
+        <div class="form-row">
+            <label>Password:</label>
+            <input type="password" name="password" required />
+        </div>
+
+
+        <div class="form-row">
+            <label>Confirm Password:</label>
+            <input type="password" name="confirmPassword" required />
+        </div>
+
+
+        <div class="actions">
+            <button type="submit" class="btn-submit">CONFIRM</button>
+        </div>
+    </form>
+</div>
+
+
+</body>
+</html>
